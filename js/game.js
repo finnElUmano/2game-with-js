@@ -11,9 +11,15 @@ let $distance = document.getElementById('distance')
 let clicks = 0;
 
 $map.addEventListener('click', function(e){
-    console.log('click');
+    
     clicks++;
     let distance =  getDistance(e, mapa);
-    let getDistanceHint = getDistanceHint(distance);
-    $distance.innerHTML = `<h1>${distance}</h1>`;
+    let getDistanceHont = getDistanceHint(distance);
+    console.log(getDistanceHont);
+    $distance.innerHTML = `<h1>${getDistanceHont}</h1>`;
+
+    if (distance < 20) {
+        alert(`Found the Treasure in ${clicks} clicks!`);
+        location.reload(); //recargando la pagina
+    }
 });
